@@ -1,0 +1,73 @@
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">Lista de Productos</h5>
+      <button class="btn btn-success btn-sm" routerLink="/create-product">
+        Nuevo producto
+      </button>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-light">
+          <tr class="text-center">
+            <th>SKU</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Inventario</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody *ngIf="products.length > 0; else noData">
+          <tr *ngFor="let product of products" class="text-center">
+            <td>{{ product.sku }}</td>
+            <td class="fw-semibold">{{ product.productName }}</td>
+            <td>${{ product.productPrecio }}</td>
+            <td>
+              <span
+                class="badge"
+                [ngClass]="product.inventario > 0 ? 'bg-success' : 'bg-danger'"
+              >
+                {{ product.inventario }}
+              </span>
+            </td>
+            <td>
+              <button
+                class="btn btn-outline-primary btn-sm me-2"
+                (click)="updateProduct(product.id)"
+              >
+                Actualizar
+              </button>
+              <button
+                class="btn btn-outline-danger btn-sm"
+                (click)="deleteProduct(product.id)"
+              >
+                Eliminar
+              </button>
+
+              <button
+                class="btn btn-outline-danger btn-sm" style="margin-left:10px" 
+                (click)="viewProduct(product.id)"
+              >
+                Ver
+              </button>
+
+
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ng-template #noData>
+        <tr>
+          <td colspan="5" class="text-center py-4 text-muted">
+            No hay productos cargados
+          </td>
+        </tr>
+      </ng-template>
+    </div>
+  </div>
+</div>
+df

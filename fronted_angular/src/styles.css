@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+.navbar{
+    background-color: rgb(133, 124, 4);
+}
+
+.footer{
+    color: white;
+    padding: 10px 0 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+
+}
+
+
+.app-logo {
+  max-width: 900px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
+
+
+body {
+    background-image: url('public/rcoppel.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
